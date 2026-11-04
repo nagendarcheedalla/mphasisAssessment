@@ -1,0 +1,24 @@
+{
+  "received": 1,
+  "processedNow": 1,
+  "transactions": [
+    {
+      "transactionId": "TXN-1001",
+      "accountId": "ACC-100",
+      "sequenceNumber": 1,
+      "status": "PROCESSED",
+      "attempts": 1,
+      "message": "Processed",
+      "resultingBalance": 100.00
+    }
+  ],
+  "totalsByStatus": {
+    "RECEIVED": 0,
+    "PROCESSING": 0,
+    "RETRY_PENDING": 0,
+    "PENDING_SEQUENCE": 0,
+    "PROCESSED": 1,
+    "DUPLICATE": 0,
+    "FAILED": 0
+  }
+}

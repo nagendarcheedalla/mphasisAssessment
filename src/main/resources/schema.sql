@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS transactions (
+  transaction_id VARCHAR(100) PRIMARY KEY,
+  request_id VARCHAR(100) NOT NULL UNIQUE,
+  account_id VARCHAR(100) NOT NULL,
+  type VARCHAR(20) NOT NULL,
+  amount DECIMAL(19,2) NOT NULL,
+  currency VARCHAR(3) NOT NULL,
+  sequence_no BIGINT NOT NULL,
+  simulate_failure BOOLEAN NOT NULL DEFAULT FALSE,
+  status VARCHAR(30) NOT NULL,
+  attempts INT NOT NULL DEFAULT 0,
+  message VARCHAR(300),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS accounts (
+  account_id VARCHAR(100) PRIMARY KEY,
+  balance DECIMAL(19,2) NOT NULL,
+  currency VARCHAR(3) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS ledger (
+  transaction_id VARCHAR(100) PRIMARY KEY,
+  account_id VARCHAR(100) NOT NULL,
+  sequence_no BIGINT NOT NULL,
+  type VARCHAR(20) NOT NULL,
+  amount DECIMAL(19,2) NOT NULL,
+  currency VARCHAR(3) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT uq_ledger_account_sequence UNIQUE(account_id, sequence_no)
+);

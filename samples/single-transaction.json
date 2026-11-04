@@ -1,0 +1,3 @@
+[
+  {"transactionId":"TXN-1001","requestId":"REQ-1001","accountId":"ACC-100","type":"CREDIT","amount":100.00,"currency":"INR","sequenceNumber":1}
+]
